@@ -1,0 +1,13 @@
+多路召回
+bm25（0.4）和向量召回（0.6）
+
+
+corpus_tokens = bm25s.tokenize(corpus, stopwords="en", stemmer=stemmer)
+stopwords去掉句子中对整个句子影响不大的词；
+stemmer词干提取器，把词根相同的词归为一类；
+
+https://gemini.google.com/app/b1ca0b80c8ec23e0
+使用滑动窗口的方式，在使用bm25做关键词召回时，通过限制滑动窗口的大小，来缩短建构bm25检索库的时间
+
+混合检索：同时用 BM25 做关键词召回，用向量检索做语义召回，再通过重排序（Rerank）模型或简单加权合并结果。
+elasticsearch 
